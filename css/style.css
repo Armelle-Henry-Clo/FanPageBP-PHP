@@ -1,0 +1,369 @@
+/*
+Armelle HENRY
+28/01/2022
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Timmana&display=swap');
+
+body,html{
+    margin: 0 0;
+    padding: 0 0; 
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
+}
+
+h1,h2,h3,h5{
+    font-family: 'Timmana', sans-serif;
+    text-align: center;
+    margin: 1vh 1vw;
+}
+.bouton{
+    border: none;
+    padding: 0 0;
+    
+}
+.bouton:hover{
+    color: #f4a7bb;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+a{
+    list-style:none;
+    color: rgba(0, 0, 0, 0.66);
+    text-shadow: rgba(0, 0, 0, 0.66) 1px 1px;
+    font-size: 1.25em;
+    border: #f4a7bb 5px solid;
+    padding: 8px 6px;    
+}
+
+p{
+    padding: 1vh 5vw 1vh 2vh;
+}
+
+a:hover{
+    color: #f4a7bb;
+    background-color: black;
+}
+
+iframe{
+    padding: 20px 20px;
+    margin:4vh 0vw;
+    border: solid 12px#f4a7bb;
+    background-color: black;
+} 
+
+.flex{
+    display: flex;
+    justify-content:space-evenly;
+    margin: 2vh 2vw;
+    padding: 2vh 2vw;
+    width: 100%;
+    overflow: hidden;
+}
+
+/*
+***********HEADER******************
+*/
+header{
+    position:relative;
+    height: 60vh;
+    background-image: url(https://k-gen.fr/wp-content/uploads/2018/11/BLACKPINK-IN-YOUR-AREA-1600x768.png);
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+h1{
+    margin-top: 35vh;
+    padding: 2vh 0 0 0;
+    font-size: 8rem;
+    color: #f4a7bb;
+    text-shadow: 1px 1px 5px;
+    font-weight: bolder;
+    font-size: 7rem;
+    animation-name: bounce;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+}
+@keyframes bounce {
+    from{
+        margin-top: 10vh;
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.728);
+    }
+    50%{
+        color: rgba(255, 255, 255, 0.886);
+    }
+    80%{
+        background-color: #f4a7bb;
+        color: #fff;
+    }
+    to{
+        margin-top: 35vh;
+        font-size: 7rem;
+        color: #f4a7bb;
+        background-color: black;
+    }  
+}
+
+/*
+***************NAV*******************
+*/
+li{
+    display: inline-block;
+    margin: 10px 10px;
+}
+
+/*
+*************MAIN*******************
+*/
+/******ACCUEIL***********/
+
+section{
+    margin:2vh;  
+}
+
+article{
+    padding: 4px 4px;
+    margin: 0px 10px 20px 10px;
+    border: solid 5px #f4a7bb;
+    border-radius: 5px;
+    background: linear-gradient(rgb(238, 135, 152),rgb(245, 85, 111));
+    max-height: 40vh;
+    box-shadow: 10px 10px 20px #f4a7bb;    
+}
+
+article p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical; 
+}
+
+section article p:hover{
+    color: #fff;
+    font-size: 1.1em;
+}
+
+/*
+*************************ALBUMS************************
+*/
+#except{
+    border: none;
+}
+
+.colle{
+    animation: 4s linear infinite alternate slidein;
+}
+@keyframes slidein{
+    from{
+        margin-left: 110%;
+    }
+    to{
+        margin-left: 5%;
+    }
+}
+
+/*
+*************FILMS****************
+*/
+.film{
+    padding:10vh 3vw 0 3vw;
+    border: solid 8px black;
+    box-shadow: rgba(0, 0, 0, 0.906) 5px 5px 10px 15px;
+    text-align: justify;
+    background: linear-gradient(rgba(238, 135, 152, 0.776),rgba(245, 85, 112, 0.756));
+   /* column-gap: 10vw; */
+} 
+.film:hover{ 
+   color: #fff;
+   font-size: 1.2em;
+}
+/*
+***********************BOUTIQUE*************
+*/
+.card-footer span{
+    display: inline-block;
+    background-color: black;
+    border: 5px solid #f4a7bb;
+    font-size: 1.1em;
+    font-family:'Timmana';
+    padding: 8px 0px 0px 5px;
+    color: #f4a7bb;
+}
+
+#shop{
+    margin: 5vh 0 0 0;
+}
+/*/
+******FORUM****************
+*/
+aside div p{
+    border: 1px solid #f4a7bb;
+    padding: 3px;
+}
+
+#forum{
+    margin-top: 5vh;
+}
+
+#forum div p span{
+    font-style: italic;
+    font-family:'Timmana';
+}
+
+.blink{
+    text-align: center;
+}
+
+/*
+************Nous contacter & quizz***************
+*/
+
+fieldset{
+    margin: 0 1vw 1vh 1vw;
+    border: solid #f4a7bb 10px;
+    background-color: rgba(0, 0, 0, 0.92);
+    padding: 10px 0 0 10px;
+    position: relative;
+    height: 50vh;
+    min-width: 35vw;
+} 
+
+legend,button{
+    color:#f4a7bb;
+    font-family: 'Timmana';
+}
+
+textarea{
+    resize: none; 
+}
+
+label{
+    color:#f4a7bb;
+    padding: 0 10px 0 0;
+}
+
+input{
+    position: absolute;
+    right: 10px;
+}
+
+input[submit]{
+    position: absolute;
+    bottom: 5px;   
+}
+input[placeholder], textarea[placeholder],input[checkbox]{
+    font-style: italic;
+    color: #f4a7bb;
+    background-color: #fff;
+}
+
+input[checkbox]{
+    margin: 0 3vw 0 0;
+}
+
+form fieldset p{
+    color:#f4a7bb;
+    height: 40vh;
+    width: 90vw;
+}
+/*
+************FOOTER*************
+**/
+
+footer{
+    color: black;
+    height: 25vh;
+    background: linear-gradient(rgb(238, 135, 152),rgb(245, 85, 111));
+}
+
+/************************************
+************MEDIA QUERIES***********
+***************************************/
+/*
+tablettes******************
+*/
+
+@media screen and (max-width: 990px){
+    .container{
+        margin: auto;
+    }
+    .d-flex{
+        flex-wrap: wrap;
+    } 
+    .flex{
+        flex-direction: column;
+    }  
+    header{
+        background-image:url(https://lejeunemusical.files.wordpress.com/2020/10/black-pink-2.jpg) ;
+
+    }
+    header nav ul li a{
+        text-decoration: none;
+        border: none;
+        display: flex;
+        padding: 0 0;
+        margin: 0 0;
+    }
+    ul{
+        padding: 0 0;
+        margin: 0 0;
+    }
+    h1{
+        margin-top: 39vh;
+        font-size: 5rem;
+        color: #f4a7bb;
+        background-color: black;
+        font-weight: bolder;
+        animation-name: bounce;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+    }
+    @keyframes bounce {
+        from{
+            margin-top: 10%;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.728);
+        }
+        60%{
+            background-color: #f4a7bbc6;
+            color: #fff;
+        }
+        to{
+            margin-top: 40vh;
+            font-size: 5rem;
+            color: #f4a7bb;
+            background-color: black;
+        }  
+    }
+    section,.film{
+        flex-direction: column;
+    }
+    label{
+        position: none;
+    }
+    .colle{
+        display: none;
+    }
+}
+
+/*
+smartphones********************************
+*/
+
+@media (max-width:620px){
+    header
+    h1{
+        display:none;
+    }
+    article p{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical; 
+    }
+    iframe{
+        max-width: 200;
+    }
+   
+}
