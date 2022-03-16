@@ -1,4 +1,6 @@
-<?php require_once 'inc/header.php' ;?>
+<?php require_once 'inc/header.php';
+// debug($_SESSION);
+;?>
 
 
     <header>
@@ -73,16 +75,9 @@
                         </div>
                     </div>
                 </div> 
-                <!-- <div>
-                    <img class="img-fluid w-75 colle" src="https://www.lisez.com/usuaris/libros/fotos/9782701403/m_libros/9782701402215ORI.jpg"  alt="BPcouverture">
-                </div> -->
             </div>
             <?php endforeach; ?>
-    
-   
-                <!-- <div><img class=" colle" src="https://k-gen.fr/wp-content/uploads/2022/01/bp-tenues-comms05.jpg" height="180" width="210" alt="BP"></div>
-            </div>
-    
+<!--
                 <div>
                     <img class="colle" src="https://cdns.klimg.com/kapanlagi.com/p/headline/476x238/foto-blackpink-tiba-di-korea-dari-indon-723712.jpg" height="200px" width="230px" alt="BP2022"> 
                 </div>
@@ -216,22 +211,49 @@
                         <label for="feat">Quel est ton featuring préféré?</label><br><br>
                         
                         <?php    foreach ($quizz as $quiz) :         ?>
-                        <input type="checkbox" name="featuring" id="" value="<?=$quiz['featuring'] ;?>">
-                        <label for="<?=$quiz['featuring'] ;?>"><?= $quiz['featuring'] ;?></label> <br>
+                        <input type="checkbox" name="featuring[]" id="<?=$quiz['featuring'] ;?>" value="featuring[]">
+                        <label for="featuring[]"><?= $quiz['featuring'] ;?></label> <br>
                    
                         <?php endforeach; ?>        
-                  
-                        <button type="reset" value="reset">reset</button> <button type="submit" value="reponse">réponse</button>
+                  <br>
+                        <button type="reset" class="btn btn-dark btn-sm text-light border-secondary">Reset</button>
+                        <button type="submit" class="btn btn-sm btn-dark text-light border-secondary" >
+  Click
+</button>
                     </fieldset>
 
                 </form>  <hr> <br> 
             </div>
         </div>
 
-<?php  if(!empty($_GET)) :
-                      
-           
- endif ;       
+<?php  
+
+
+if(!empty($_GET['chanteuse'] && !empty($_GET['featuring']))) :  ;?>  
+
+           <figure><blockquote class="blockquote text-center"><p>
+ <?php      
+ 
+   if($_GET['featuring'] > 1) :
+    foreach ($_GET['featuring'] as $value):
+    // debug($quiz);
+        echo ($_GET['chanteuse'] .  ' est vraiment top dans '  . $quiz['featuring'] . '!');
+        
+ endforeach; endif; ?>
+</p>
+
+</blockquote>
+        
+        
+    <img class="w-75 border border-dark border-4" src="https://k-gen.fr/wp-content/uploads/2022/01/bp-tenues-comms05.jpg" alt="Couverture des Black Pink">
+    </figure>
+
+
+
+    <?php 
+            
+// endif; 
+endif;      
         
 
    // <!-----Formulaire pour contacter les artistes-->
@@ -251,27 +273,34 @@ $resultat = executeRequete("INSERT INTO user (pseudo, password, email, date_insc
     ':date_inscription' => date('Y/m/d')
 ));
 
-$message = "<font style= 'arial> FELICITATIONS!!!</font>";
+$message = "FELICITATIONS!!!";
 mail($mail ,'Bravo!',$message);
 
 
+$_SESSION['messages']['success'][] = 'Vous venez de recevoir un email!';
+    echo '<script>window.location="'. SITE .'index.php"</script>';
+
+    // else : 
+    //     $_SESSION['messages']['danger'][] = 'oups!';
+    //     echo '<script>window.location="'. SITE .'index.php"</script>'; 
+
    endif
 ;?>
-
+<br>
         <div id="contact">
             <h2>MON COMPTE</h2>
             <div class="flex w-100">
-                <form action="" method="post" >
+                <form action="" method="post">
                     <fieldset>
                        <legend>Mon compte</legend> <br>
                        <label for="pseudo">Pseudo</label>
-                        <input type="text" id="pseudo" name="pseudo" placeholder=" pseudo" value="pseudo" ><br> 
+                        <input type="text" id="pseudo" name="pseudo" required value="pseudo" ><br> 
                             <br>
                         <label for="mdp">Mot de passe</label>
-                        <input type="password" id="mdp" name="mdp" minlength="4" maxlength="10" ><br> <br> 
+                        <input type="password" id="mdp" name="mdp" minlength="6" maxlength="12" ><br> <br> 
 
                         <label for="email">Votre email</label>
-                        <input type="email" id="email" name="email" placeholder="xxx@mail.com" > <br> <br>              
+                        <input type="email" id="email" name="email" required> <br> <br>              
                          <br> <br> 
                         
                         <button type="submit" value="submit">Envoi</button>
