@@ -192,10 +192,10 @@
     ));
     $quizz= $resultats->fetchAll(PDO::FETCH_ASSOC);
 
-    
+   
   
     ;?>
-                <form action="" method="get">
+                <form action="" method="GET">
                     <fieldset>
                         <legend>Quelle Blink es tu?</legend>  <br><br>
                         <label for="prefer">Quelle est ta Black Pink préférée?</label><br>
@@ -203,57 +203,44 @@
                <?php    foreach ($quizz as $quiz) :        ?>
                         <input type="radio" name="chanteuse" id="" value="<?=$quiz['chanteuse'] ;?>">
                         <label for="<?= $quiz['chanteuse'];?>"><?=$quiz['chanteuse'] ;?></label> <br> 
-                        <?php endforeach; 
-                        // debug($_GET);
-                        ?>
+                        <?php endforeach; ?>
+                       
                         <br>
 
-                        <label for="feat">Quel est ton featuring préféré?</label><br><br>
+                        <label>Quel est ton featuring préféré?</label><br><br>
                         
-                        <?php    foreach ($quizz as $quiz) :         ?>
-                        <input type="checkbox" name="featuring[]" id="<?=$quiz['featuring'] ;?>" value="featuring[]">
-                        <label for="featuring[]"><?= $quiz['featuring'] ;?></label> <br>
-                   
-                        <?php endforeach; ?>        
-                  <br>
+
+                        <input type="checkbox" name="Kiss and Make Up">
+                        <label for="Kiss and Make Up">Kiss and Make Up</label> <br>
+                        <input type="checkbox" name="Bet Your Wanna" id="Bet Your Wanna">
+                        <label for="Bet Your Wanna">Bet Your Wanna</label> <br>
+                        <input type="checkbox" name="Ice Cream" id="Ice Cream">
+                        <label for="Ice Cream">Ice Cream</label> <br>
+                        <input type="checkbox" name="No More" id="No More">
+                        <label for="No More">No More</label> <br> <br>
                         <button type="reset" class="btn btn-dark btn-sm text-light border-secondary">Reset</button>
-                        <button type="submit" class="btn btn-sm btn-dark text-light border-secondary" >
-  Click
-</button>
+                        <button type="submit" class="btn btn-sm btn-dark text-light border-secondary">Click</button>
                     </fieldset>
 
                 </form>  <hr> <br> 
             </div>
         </div>
 
-<?php  
+<?php                     
 
+if(!empty($_GET)) :  //debug($_GET); ;?>  
 
-if(!empty($_GET['chanteuse'] && !empty($_GET['featuring']))) :  ;?>  
+            <figure>
+               <blockquote class="blockquote text-center">
+                   <p><?= $_GET['chanteuse'] . ' est extra!' ;?></p>
+                </blockquote>
+  
+                <img class="w-75 border border-dark border-4" src="https://k-gen.fr/wp-content/uploads/2022/01/bp-tenues-comms05.jpg" alt="Couverture des Black Pink">
+            </figure>
 
-           <figure><blockquote class="blockquote text-center"><p>
- <?php      
- 
-   if($_GET['featuring'] > 1) :
-    foreach ($_GET['featuring'] as $value):
-    // debug($quiz);
-        echo ($_GET['chanteuse'] .  ' est vraiment top dans '  . $quiz['featuring'] . '!');
-        
- endforeach; endif; ?>
-</p>
-
-</blockquote>
-        
-        
-    <img class="w-75 border border-dark border-4" src="https://k-gen.fr/wp-content/uploads/2022/01/bp-tenues-comms05.jpg" alt="Couverture des Black Pink">
-    </figure>
-
-
-
-    <?php 
-            
-// endif; 
-endif;      
+    <?php            
+endif; 
+    
         
 
    // <!-----Formulaire pour contacter les artistes-->
